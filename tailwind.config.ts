@@ -9,21 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'mahindra': {
-          red: '#E31837',
-          blue: '#00233D',
-          gold: '#C5A572',
-          'light-blue': '#007CC3',
-          'forest-green': '#1C8A42',
-          sand: '#F2E6D9',
+        'mongodb': {
+          slate: '#001E2B',
+          white: '#FFFFFF',
+          'spring-green': '#00ED64',
+          'forest-green': '#00684A',
+          evergreen: '#023430',
+          mist: '#E3FCF7',
+          lavender: '#F9EBFF',
+          lime: '#E9FF99',
+          sky: '#00D2FF',
+          'clear-blue': '#006EFF',
         },
-      },
-      fontFamily: {
-        montserrat: ['Montserrat', 'sans-serif'],
-        'open-sans': ['Open Sans', 'sans-serif'],
-      },
-      backgroundImage: {
-        'resort-pattern': "url('/images/resort-pattern.png')",
       },
     },
   },
