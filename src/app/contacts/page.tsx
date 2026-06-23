@@ -187,7 +187,20 @@ export default function ContactsPage() {
       <header className="bg-mongodb-white border-b border-mongodb-slate/10">
         <div className="max-w-3xl mx-auto px-6 py-5 flex items-center justify-between gap-4">
           <div>
-            <h1 className="text-xl font-semibold text-mongodb-slate">Travel Buddy Suggestions</h1>
+            <h1 className="text-xl font-semibold text-mongodb-slate flex items-center gap-1.5">
+              Travel Buddy Suggestions
+              <InfoTooltip
+                title="Why MongoDB, Not a Dedicated Graph DB?"
+                summary="This workload's shape — not just $graphLookup's speed — is why a document database fits, on five counts:"
+                points={[
+                  'Schema: almost all of this is plain document CRUD (profiles, search) — only the recommendation slice is graph-shaped, so it gets one thin edge collection, not nodes+edges everywhere',
+                  'Depth: real "who do I know" traversals are shallow (1-2 hops) and directed — exactly where $graphLookup is cheap; unbounded-depth traversal is the case a dedicated graph engine earns its keep',
+                  "Cardinality: a high-fan-out 'celebrity' node is everyone's hard case, dedicated graph DBs included — solved here with caps/sampling, not a different database",
+                  'Scaling: standard replica sets + sharding scale the document and graph workload the same way — no separate graph-specific topology (e.g. Neo4j Fabric) to design around and risk migrating off later',
+                  'DX: one aggregation pipeline covers CRUD, search, and traversal — no second query language or ops surface to keep correct against a deadline',
+                ]}
+              />
+            </h1>
             {data && (
               <p className="text-sm text-mongodb-slate/60">
                 Logged in as {data.me.name} ({data.me.handle})
